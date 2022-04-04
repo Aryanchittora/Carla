@@ -3,7 +3,6 @@ from keras.models import Sequential
 from keras.layers import Dense
 
 dataset = pd.read_csv('books.csv', error_bad_lines=False)
-
 x = dataset.iloc[:, [4, 11]].values
 y = dataset.iloc[:, 3].values
 
