@@ -1,4 +1,6 @@
 import pandas as pd
+import pickle
+from keras.models import model_from_json
 from sklearn.neural_network import MLPClassifier
 
 df = pd.read_csv('radar_data_modified.csv')
@@ -17,4 +19,18 @@ model = MLPClassifier(
 model.fit(x, y)
 predictions = model.predict(x)
 
-print(f'Predicted Data - {predictions}')
+with open("model.pkl", 'wb') as file:
+    pickle.dump(model, file)
+
+with open('model.pkl', 'rb') as file:
+    saved_model = pickle.load(file)
+
+car_data = {
+    'throttle':[5.5534],
+    'distance':[20]
+}
+data = pd.DataFrame(car_data, columns=['throttle', 'distance'])
+
+data_predict = saved_model.predict(data)
+
+print('Car Data Predictions', data_predict)
