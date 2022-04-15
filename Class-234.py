@@ -27,6 +27,7 @@ with open('model.pkl', 'rb') as file:
 
 car_data = {
     'throttle':[5.5534],
+    'steer':[0.1],
     'distance':[20]
 }
 data = pd.DataFrame(car_data, columns=['throttle', 'distance'])
