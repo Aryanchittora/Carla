@@ -3,16 +3,16 @@ import pickle
 from keras.models import model_from_json
 from sklearn.neural_network import MLPClassifier
 
-df = pd.read_csv('radar_data_modified.csv')
+df = pd.read_csv('new_radar_distance_data.csv')
 
-x = df.iloc[: ,[2, 4]].values
+x = df.iloc[:, [2, 4]].values
 y = df.iloc[:, 5].values
 
 model = MLPClassifier(
     hidden_layer_sizes = (20),
-    batch_size = 200,
-    activation = 'relu',
     random_state = 5,
+    activation = 'relu',
+    batch_size = 200,
     learning_rate_init = 0.03,
 )
 
@@ -27,8 +27,8 @@ with open('model.pkl', 'rb') as file:
 
 car_data = {
     'throttle':[5.5534],
-    'steer':[0.1],
-    'distance':[20]
+    'steer':[-0.68],
+    'distance':[22.2192192]
 }
 data = pd.DataFrame(car_data, columns=['throttle', 'distance'])
 
