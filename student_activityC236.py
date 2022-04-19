@@ -41,7 +41,7 @@ try:
     mustang_car = get_blueprint_of_world.filter('mustang')[0]
     spawn_point = (world.get_map().get_spawn_points()[6])
     dropped_mustang = world.spawn_actor(mustang_car, spawn_point)
-    droppe_mustang.apply_control(carla.VehicleControl(throttle=0.5))
+    dropped_mustang.apply_control(carla.VehicleControl(throttle=0.5))
 
     dropped_vehicle.apply_control(carla.VehicleControl(throttle=0.5))
 
