@@ -22,8 +22,8 @@ predictions = model.predict(x)
 with open("model.pkl", 'wb') as file:
     pickle.dump(model, file)
 
-with open('model.pkl', 'rb') as file:
-    saved_model = pickle.load(file)
+with open('model.pkl', 'rb') as file1:
+    saved_model = pickle.load(file1)
 
 car_data = {
     'throttle':[5.5534],
